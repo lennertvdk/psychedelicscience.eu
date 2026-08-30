@@ -4,18 +4,35 @@
 <meta charset="utf-8">
 <title>Redirecting…</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="0; url=https://www.linkedin.com/in/lennert-van-de-kreeke/">
+<meta http-equiv="refresh" content="2; url=https://www.linkedin.com/in/lennert-van-de-kreeke/">
 <link rel="canonical" href="https://www.linkedin.com/in/lennert-van-de-kreeke/">
 <meta name="robots" content="noindex">
-<script>location.replace("https://www.linkedin.com/in/lennert-van-de-kreeke/");</script>
 <style>
   html{color-scheme:light dark}
   body{margin:0;min-height:100vh;display:grid;place-items:center;
        font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:2rem}
   a{color:#0a66c2}
 </style>
-<script data-goatcounter="https://psychedelicscience-eu.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var target = "https://www.linkedin.com/in/lennert-van-de-kreeke/";
+  var done = false;
+  function go() { if (!done) { done = true; location.replace(target); } }
+
+  // Register the hit with GoatCounter before navigating away. An async
+  // <script> tag never finishes loading on an instant-redirect page, so
+  // count via the pixel endpoint and leave as soon as it settles.
+  var px = new Image();
+  px.onload = px.onerror = go;
+  px.src = "https://psychedelicscience-eu.goatcounter.com/count"
+         + "?p=" + encodeURIComponent(location.pathname)
+         + "&r=" + encodeURIComponent(document.referrer)
+         + "&t=" + encodeURIComponent(document.title)
+         + "&rnd=" + Math.random().toString(36).slice(2);
+
+  setTimeout(go, 500); // don't strand anyone if the beacon hangs
+})();
+</script>
 </head>
 <body>
   <p>Redirecting to <a href="https://www.linkedin.com/in/lennert-van-de-kreeke/">LinkedIn</a>…</p>
