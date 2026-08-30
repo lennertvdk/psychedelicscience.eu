@@ -8,11 +8,16 @@
 <link rel="canonical" href="https://www.linkedin.com/in/lennert-van-de-kreeke/">
 <meta name="robots" content="noindex">
 <style>
-  html{color-scheme:light dark}
-  body{margin:0;min-height:100vh;display:grid;place-items:center;
+  html{background:#fff}
+  @media (prefers-color-scheme:dark){html{background:#111}}
+  /* Nothing paints during the redirect. The fallback below is revealed
+     only if we're somehow still here after a second. */
+  body{visibility:hidden;margin:0;min-height:100vh;display:grid;place-items:center;
+       color-scheme:light dark;
        font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:2rem}
   a{color:#0a66c2}
 </style>
+<noscript><style>body{visibility:visible}</style></noscript>
 <script>
 (function () {
   var target = "https://www.linkedin.com/in/lennert-van-de-kreeke/";
@@ -31,6 +36,11 @@
          + "&rnd=" + Math.random().toString(36).slice(2);
 
   setTimeout(go, 500); // don't strand anyone if the beacon hangs
+
+  // Last resort: if the redirect itself was blocked, show the link.
+  setTimeout(function () {
+    if (document.body) document.body.style.visibility = "visible";
+  }, 1500);
 })();
 </script>
 </head>
